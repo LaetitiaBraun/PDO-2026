@@ -1,5 +1,6 @@
 <?php
 
+
 # Notre première connexion via PDO
 
 $connexionPDO = new PDO(
@@ -12,6 +13,8 @@ $connexionPDO = new PDO(
     # password -> Votre mot de passe
     "",
 );
+
+
 
 // on crée la requête qu'on va effectuer sur notre connexion, elle sera de type PDOStatement
 $request = $connexionPDO->query("
@@ -30,3 +33,14 @@ while($item = $request->fetch(PDO::FETCH_ASSOC)){
     // ici 'nom'
     echo $item['nom']." | ";
 }
+
+// bonne pratique, fermeture de la requête
+// utile pour relancer cette requête
+// dans certains languages SQL MS-SQL
+$request->closeCursor();
+
+// bonne pratique (pour connexion non permanente),
+// fermer la connexion
+// sql (inutile pour MySQL et MariaDB
+// qui le font en fin de page)
+$connexionPDO = null;

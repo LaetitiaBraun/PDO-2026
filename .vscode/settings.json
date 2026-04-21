@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3303,
+            "driver": "MariaDB",
+            "name": "MariaDB",
+            "database": "listepays",
+            "username": "root",
+            "password": ""
+        }
+    ]
+}
