@@ -35,8 +35,22 @@ try{
 
 }
 
-// fermeture de connexion
-$db = null;
+// on effectue réellement la requête
+// de type select qui va dans un objet
+// de type PDOStatment
+$request = $db->query("
+SELECT * FROM `countries` 
+    ORDER BY `countries`.`population` DESC;
+ ");
 
+ // on récupère nos données immédiatement
+ $results = $request->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($db);
+ /* création d'un json
+ $json = json_encode($results);
+ $create = fopen('jsonta-'.date('YmdHis').'-'.uniqid(true).".json","wr");
+ fwrite($create,  $json); 
+ fclose($create);
+ */
+
+var_dump($db,$request,$results);
