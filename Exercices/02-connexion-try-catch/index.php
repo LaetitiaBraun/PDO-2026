@@ -34,3 +34,9 @@ try{
     echo "<br>Message d'Erreur : ".$e->getMessage();
 
 }
+
+// fermeture de connexion
+$db = null;
+
+
+var_dump($db);
